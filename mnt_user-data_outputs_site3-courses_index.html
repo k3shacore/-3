@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Школа Пиксель - онлайн-курсы по программированию и дизайну</title>
+<meta name="description" content="Онлайн-школа IT-профессий: веб-разработка, Python, UX-дизайн. Живые наставники, проекты для портфолио и помощь с трудоустройством.">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--violet:#2b1d63;--violet-2:#3e2b8f;--lilac:#ece8fb;--coral:#ff6a4d;--mint:#59e0b4;--snow:#fbfaff;--ink:#1c1740;
+--bs-body-font-family:'Manrope',system-ui,sans-serif;--bs-body-color:var(--ink);--bs-body-bg:var(--snow)}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+h1,h2,h3,h4,.brand{font-family:'Space Grotesk',system-ui,sans-serif;font-weight:700;letter-spacing:-.02em}
+.navbar{background:var(--violet)}
+.navbar .nav-link{color:#d9d2f7;font-weight:500}
+.navbar .nav-link:hover{color:#fff}
+.brand{color:#fff;text-decoration:none;font-size:1.4rem}
+.brand i{display:inline-block;width:.9rem;height:.9rem;background:var(--coral);margin-right:.5rem;border-radius:2px;transform:rotate(45deg)}
+.btn-coral{--bs-btn-bg:var(--coral);--bs-btn-border-color:var(--coral);--bs-btn-color:#2b0d05;--bs-btn-hover-bg:#ff846b;--bs-btn-hover-border-color:#ff846b;--bs-btn-hover-color:#2b0d05;--bs-btn-active-bg:#e5553a;--bs-btn-active-border-color:#e5553a;font-weight:700;border-radius:.6rem}
+.btn-violet{--bs-btn-bg:var(--violet);--bs-btn-border-color:var(--violet);--bs-btn-color:#fff;--bs-btn-hover-bg:var(--violet-2);--bs-btn-hover-border-color:var(--violet-2);--bs-btn-hover-color:#fff;--bs-btn-active-bg:#1f1448;--bs-btn-active-color:#fff;font-weight:700;border-radius:.6rem}
+.hero{background:var(--violet);color:#fff;padding:6.5rem 0 4rem;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -10% -45% auto;width:60vw;height:60vw;max-width:700px;max-height:700px;border-radius:50%;background:radial-gradient(circle,rgba(89,224,180,.22),transparent 65%);pointer-events:none}
+.hero h1{font-size:clamp(2.3rem,6vw,4.1rem);line-height:1.05}
+.hero .lead{color:#cfc7f3;max-width:34rem}
+.code-win{background:#17104a;border-radius:.9rem;box-shadow:0 20px 50px rgba(0,0,0,.35);font-family:ui-monospace,Consolas,monospace;font-size:.9rem;overflow:hidden;position:relative;z-index:1}
+.code-bar{background:#241a66;padding:.6rem .9rem;display:flex;gap:.4rem;align-items:center;color:#b9b0ea;font-size:.8rem}
+.code-bar b{width:.7rem;height:.7rem;border-radius:50%;display:inline-block}
+.code-body{padding:1.1rem 1.2rem;min-height:15rem;white-space:pre-wrap;color:#e8e3ff;margin:0}
+.code-body .k{color:#ff9a85}.code-body .s{color:#59e0b4}.code-body .c{color:#8c82c8}
+.cursor{display:inline-block;width:.55em;height:1.1em;background:var(--mint);vertical-align:-.2em;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.section{padding:4.5rem 0}
+.section-lilac{background:var(--lilac)}
+h2{font-size:clamp(1.8rem,4vw,2.6rem)}
+.stat{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,5vw,3rem);font-weight:700;color:var(--violet-2);line-height:1}
+.course{border:2px solid #d8d1f5;border-radius:1rem;background:#fff;height:100%;transition:border-color .2s,transform .2s}
+.course:hover{border-color:var(--violet-2);transform:translateY(-4px)}
+.course .tag{display:inline-block;font-size:.8rem;font-weight:700;background:var(--lilac);color:var(--violet-2);padding:.2rem .6rem;border-radius:2rem}
+.course .cost{font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700}
+.nav-tabs{border-color:#c9c0f0}
+.nav-tabs .nav-link{color:var(--ink);font-weight:700}
+.nav-tabs .nav-link.active{color:var(--violet-2);border-color:#c9c0f0 #c9c0f0 var(--snow);background:var(--snow)}
+.module{display:flex;gap:1rem;padding:.9rem 0;border-bottom:1px solid #d8d1f5}
+.module b{font-family:'Space Grotesk',sans-serif;color:var(--coral);min-width:5.5rem}
+.accordion{--bs-accordion-active-bg:var(--lilac);--bs-accordion-active-color:var(--ink);--bs-accordion-btn-focus-box-shadow:0 0 0 .2rem rgba(62,43,143,.25)}
+.accordion-button{font-weight:700}
+.review{background:#fff;border-radius:1rem;padding:1.5rem;height:100%;border:2px solid #d8d1f5}
+.avatar{width:3rem;height:3rem;border-radius:50%;flex:none}
+.form-control:focus,.form-select:focus{border-color:var(--violet-2);box-shadow:0 0 0 .2rem rgba(62,43,143,.2)}
+footer{background:#160f3b;color:#b5acdf}
+footer a{color:#e0dbf8;text-decoration:none}footer a:hover{color:#fff;text-decoration:underline}
+.toast-zone{position:fixed;top:78px;right:1rem;left:1rem;max-width:26rem;margin-left:auto;z-index:2000}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cursor{animation:none}.course{transition:none}}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+ <div class="container">
+  <a class="brand" href="#top"><i></i>Пиксель</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Открыть меню"><span class="navbar-toggler-icon"></span></button>
+  <div class="collapse navbar-collapse" id="nav">
+   <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+    <li class="nav-item"><a class="nav-link" href="#courses">Курсы</a></li>
+    <li class="nav-item"><a class="nav-link" href="#program">Программа</a></li>
+    <li class="nav-item"><a class="nav-link" href="#reviews">Отзывы</a></li>
+    <li class="nav-item"><a class="nav-link" href="#faq">Вопросы</a></li>
+    <li class="nav-item"><a class="btn btn-coral ms-lg-2 mt-2 mt-lg-0" href="#contact">Получить консультацию</a></li>
+   </ul>
+  </div>
+ </div>
+</nav>
+
+<header class="hero" id="top">
+ <div class="container">
+  <div class="row g-5 align-items-center">
+   <div class="col-lg-6">
+    <h1>Первая работа в IT через 8 месяцев и три проекта в портфолио</h1>
+    <p class="lead mt-3">Живые наставники из Яндекса, Сбера и Тинькофф проверяют каждое ваше домашнее задание. Рассрочка без переплаты, возврат денег в первые 14 дней.</p>
+    <div class="d-flex flex-wrap gap-2 mt-4">
+     <a class="btn btn-coral btn-lg" href="#courses">Выбрать курс</a>
+     <button class="btn btn-outline-light btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#trialModal">Попробовать бесплатно</button>
+    </div>
+   </div>
+   <div class="col-lg-6">
+    <div class="code-win" role="img" aria-label="Окно редактора кода, в котором печатается простая программа на Python">
+     <div class="code-bar"><b style="background:#ff6a4d"></b><b style="background:#ffd166"></b><b style="background:#59e0b4"></b><span class="ms-2">first_job.py</span></div>
+     <pre class="code-body" id="typed" aria-hidden="true"></pre>
+    </div>
+   </div>
+  </div>
+ </div>
+</header>
+
+<main>
+<section class="section pb-2">
+ <div class="container">
+  <div class="row g-4 text-center text-md-start" id="stats">
+   <div class="col-6 col-md-3"><div class="stat" data-n="6400" data-s="+">0</div><div class="text-secondary">выпускников с 2018 года</div></div>
+   <div class="col-6 col-md-3"><div class="stat" data-n="87" data-s="%">0</div><div class="text-secondary">нашли работу за полгода</div></div>
+   <div class="col-6 col-md-3"><div class="stat" data-n="140" data-s="">0</div><div class="text-secondary">компаний-партнёров</div></div>
+   <div class="col-6 col-md-3"><div class="stat" data-n="4.8" data-s="/5" data-d="1">0</div><div class="text-secondary">средняя оценка курсов</div></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="courses">
+ <div class="container">
+  <h2>Выберите направление</h2>
+  <p class="text-secondary col-lg-7">Все программы начинаются с нуля. Опыт в IT не нужен, нужны 10-12 часов в неделю и желание разбираться.</p>
+  <div class="row g-4 mt-1" id="courseGrid"></div>
+ </div>
+</section>
+
+<section class="section section-lilac" id="program">
+ <div class="container">
+  <h2>Чему вы научитесь</h2>
+  <p class="text-secondary col-lg-7">Программа разбита на модули. В конце каждого вы сдаёте проект, который остаётся в портфолио.</p>
+  <ul class="nav nav-tabs mt-4" id="progTabs" role="tablist"></ul>
+  <div class="tab-content pt-3" id="progPanes"></div>
+ </div>
+</section>
+
+<section class="section" id="reviews">
+ <div class="container">
+  <h2 class="mb-4">Истории выпускников</h2>
+  <div class="row g-4">
+   <div class="col-md-4"><div class="review"><div class="d-flex align-items-center gap-3 mb-3"><svg class="avatar" viewBox="0 0 48 48" role="img" aria-label="Аватар: Никита Орлов"><circle cx="24" cy="24" r="24" fill="#ff6a4d"/><text x="24" y="31" text-anchor="middle" font-size="20" font-family="sans-serif" fill="#2b0d05">Н</text></svg><div><strong>Никита Орлов</strong><div class="small text-secondary">Фронтенд-разработчик, Ozon</div></div></div><p class="mb-0">Был менеджером по продажам. После курса сделал три проекта, и на собеседовании меня спрашивали именно про них. Оффер получил через пять недель.</p></div></div>
+   <div class="col-md-4"><div class="review"><div class="d-flex align-items-center gap-3 mb-3"><svg class="avatar" viewBox="0 0 48 48" role="img" aria-label="Аватар: Алина Мельник"><circle cx="24" cy="24" r="24" fill="#59e0b4"/><text x="24" y="31" text-anchor="middle" font-size="20" font-family="sans-serif" fill="#0b3a2b">А</text></svg><div><strong>Алина Мельник</strong><div class="small text-secondary">Python-разработчик, Сбер</div></div></div><p class="mb-0">Наставник разбирал мой код построчно и не давал расслабиться. Из учебы вышла с рабочим телеграм-ботом, который потом показала на интервью.</p></div></div>
+   <div class="col-md-4"><div class="review"><div class="d-flex align-items-center gap-3 mb-3"><svg class="avatar" viewBox="0 0 48 48" role="img" aria-label="Аватар: Тимур Рахимов"><circle cx="24" cy="24" r="24" fill="#8f7cf0"/><text x="24" y="31" text-anchor="middle" font-size="20" font-family="sans-serif" fill="#fff">Т</text></svg><div><strong>Тимур Рахимов</strong><div class="small text-secondary">UX-дизайнер, Тинькофф</div></div></div><p class="mb-0">Учился вечерами после работы. Группа небольшая, все помогают друг другу, а карьерный консультант переписал моё резюме трижды.</p></div></div>
+  </div>
+ </div>
+</section>
+
+<section class="section section-lilac" id="faq">
+ <div class="container">
+  <div class="row g-5">
+   <div class="col-lg-4"><h2>Частые вопросы</h2><p class="text-secondary">Остались сомнения? Закажите звонок, и мы ответим на всё за 15 минут.</p></div>
+   <div class="col-lg-8">
+    <div class="accordion" id="faqAcc">
+     <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1" aria-expanded="true" aria-controls="q1">Я никогда не программировал. Мне подойдёт?</button></h3><div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc"><div class="accordion-body">Да. Все курсы рассчитаны на старт с нуля. Первые две недели мы вместе настраиваем рабочее место и пишем первые программы.</div></div></div>
+     <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2" aria-expanded="false" aria-controls="q2">Сколько времени нужно уделять учёбе?</button></h3><div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Около 10-12 часов в неделю: две живые лекции по вечерам и самостоятельная практика. Записи лекций остаются у вас навсегда.</div></div></div>
+     <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3" aria-expanded="false" aria-controls="q3">Можно ли платить в рассрочку?</button></h3><div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Да, рассрочка на 12 или 24 месяца без процентов и без скрытых комиссий. Решение банка приходит за несколько минут.</div></div></div>
+     <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q4" aria-expanded="false" aria-controls="q4">Гарантируете ли вы трудоустройство?</button></h3><div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc"><div class="accordion-body">Мы не обещаем работу, но помогаем с резюме, портфолио и собеседованиями, а наши партнёры получают доступ к резюме выпускников. Если не нашли работу за 6 месяцев после выпуска, вернём 50 процентов стоимости.</div></div></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="contact">
+ <div class="container">
+  <div class="row g-5">
+   <div class="col-lg-5">
+    <h2>Закажите бесплатную консультацию</h2>
+    <p class="text-secondary mt-3">Менеджер поможет выбрать курс под вашу цель, расскажет про рассрочку и ближайший старт потока.</p>
+    <ul class="list-unstyled mt-4">
+     <li class="mb-2"><strong>Телефон:</strong> <a class="text-reset" href="tel:+78005550176">8 (800) 555-01-76</a>, звонок бесплатный</li>
+     <li class="mb-2"><strong>Почта:</strong> <a class="text-reset" href="mailto:study@pixel-school.example">study@pixel-school.example</a></li>
+     <li><strong>Время работы:</strong> пн-пт с 9:00 до 20:00 (МСК)</li>
+    </ul>
+   </div>
+   <div class="col-lg-7">
+    <form id="leadForm" class="row g-3" novalidate>
+     <div class="col-md-6"><label class="form-label" for="lName">Имя</label><input id="lName" class="form-control" required minlength="2" autocomplete="name"><div class="invalid-feedback">Введите имя.</div></div>
+     <div class="col-md-6"><label class="form-label" for="lMail">Почта</label><input id="lMail" type="email" class="form-control" required autocomplete="email"><div class="invalid-feedback">Введите корректный адрес почты.</div></div>
+     <div class="col-md-6"><label class="form-label" for="lPhone">Телефон</label><input id="lPhone" type="tel" class="form-control" required pattern="\+?[0-9\s\-\(\)]{10,18}" placeholder="+7 (900) 000-00-00" autocomplete="tel"><div class="invalid-feedback">Введите телефон в формате +7 (900) 000-00-00.</div></div>
+     <div class="col-md-6"><label class="form-label" for="lCourse">Направление</label><select id="lCourse" class="form-select" required><option value="">Выберите</option></select><div class="invalid-feedback">Выберите направление.</div></div>
+     <div class="col-12"><label class="form-label" for="lMsg">Ваша цель</label><textarea id="lMsg" class="form-control" rows="3" placeholder="Например: сменить профессию или повысить квалификацию"></textarea></div>
+     <div class="col-12"><div class="form-check"><input id="lAgree" class="form-check-input" type="checkbox" required><label class="form-check-label" for="lAgree">Согласен на обработку персональных данных</label><div class="invalid-feedback">Необходимо согласие.</div></div></div>
+     <div class="col-12"><button class="btn btn-violet btn-lg" type="submit">Получить консультацию</button></div>
+    </form>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer class="py-5">
+ <div class="container">
+  <div class="row g-4">
+   <div class="col-md-5"><div class="brand mb-2"><i></i>Пиксель</div><p class="mb-0">Онлайн-школа IT-профессий. Лицензия на образовательную деятельность № Л035-01255-77/00180934.</p></div>
+   <div class="col-6 col-md-3"><h3 class="h6 text-white">Разделы</h3><ul class="list-unstyled mb-0"><li><a href="#courses">Курсы</a></li><li><a href="#program">Программа</a></li><li><a href="#reviews">Отзывы</a></li><li><a href="#contact">Контакты</a></li></ul></div>
+   <div class="col-6 col-md-4"><h3 class="h6 text-white">Связаться</h3><p class="mb-0">8 (800) 555-01-76<br>study@pixel-school.example</p></div>
+  </div>
+  <hr class="border-secondary mt-4"><p class="small mb-0">&copy; 2026 ООО «Пиксель Эдьюкейшн». Все права защищены.</p>
+ </div>
+</footer>
+
+<div class="toast-zone" id="toastZone" aria-live="polite"></div>
+
+<div class="modal fade" id="enrollModal" tabindex="-1" aria-labelledby="enTitle" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+  <form id="enrollForm" novalidate>
+   <div class="modal-header"><h2 class="modal-title h4" id="enTitle">Запись на курс</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button></div>
+   <div class="modal-body">
+    <p id="enInfo" class="text-secondary"></p>
+    <div class="mb-3"><label class="form-label" for="eName">Имя</label><input id="eName" class="form-control" required minlength="2"><div class="invalid-feedback">Введите имя.</div></div>
+    <div class="mb-3"><label class="form-label" for="eMail">Почта</label><input id="eMail" type="email" class="form-control" required><div class="invalid-feedback">Введите корректный адрес почты.</div></div>
+    <label class="form-label" for="ePay">Способ оплаты</label><select id="ePay" class="form-select"><option>Рассрочка на 12 месяцев</option><option>Рассрочка на 24 месяца</option><option>Единовременно со скидкой 10 процентов</option></select>
+   </div>
+   <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Отмена</button><button type="submit" class="btn btn-coral">Записаться на курс</button></div>
+  </form>
+ </div></div>
+</div>
+
+<div class="modal fade" id="trialModal" tabindex="-1" aria-labelledby="trTitle" aria-hidden="true">
+ <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+  <form id="trialForm" novalidate>
+   <div class="modal-header"><h2 class="modal-title h4" id="trTitle">Пробный урок бесплатно</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button></div>
+   <div class="modal-body">
+    <p class="text-secondary">Откроем доступ к первому модулю на 7 дней: лекции, задания и чат с наставником.</p>
+    <label class="form-label" for="tMail">Почта</label><input id="tMail" type="email" class="form-control" required><div class="invalid-feedback">Введите корректный адрес почты.</div>
+   </div>
+   <div class="modal-footer"><button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Закрыть</button><button type="submit" class="btn btn-violet">Получить доступ</button></div>
+  </form>
+ </div></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+(function(){
+ var COURSES=[
+  {id:'web',name:'Веб-разработка',tag:'8 месяцев',desc:'HTML, CSS, JavaScript, React и работа с сервером. Три коммерческих проекта в портфолио.',price:'4 900',total:'58 800',start:'14 декабря',
+   mods:[['Месяц 1','Вёрстка: HTML, CSS, Flexbox и Grid, адаптивные макеты'],['Месяцы 2-3','JavaScript: функции, DOM, асинхронность, работа с API'],['Месяцы 4-5','React, состояние приложения, маршрутизация, тесты'],['Месяцы 6-7','Node.js, базы данных, авторизация, деплой'],['Месяц 8','Командный проект и подготовка к собеседованиям']]},
+  {id:'py',name:'Python-разработчик',tag:'7 месяцев',desc:'Основы языка, алгоритмы, Django и базы данных. Выпускной проект - сервис с API и ботом.',price:'5 200',total:'62 400',start:'21 декабря',
+   mods:[['Месяц 1','Основы Python: типы данных, функции, работа с файлами'],['Месяц 2','Алгоритмы и структуры данных, ООП'],['Месяцы 3-4','Django, REST API, PostgreSQL'],['Месяц 5','Асинхронность, очереди задач, Docker'],['Месяцы 6-7','Командный проект, код-ревью, подготовка резюме']]},
+  {id:'ux',name:'UX/UI-дизайн',tag:'6 месяцев',desc:'Исследования, прототипы в Figma, дизайн-системы. Два кейса и защита перед индустриальным жюри.',price:'4 400',total:'52 800',start:'11 января',
+   mods:[['Месяц 1','Основы композиции, типографика, цвет, сетки'],['Месяц 2','Пользовательские исследования и интервью'],['Месяц 3','Прототипирование в Figma и юзабилити-тесты'],['Месяц 4','Дизайн-системы и компоненты'],['Месяцы 5-6','Кейсы для портфолио, защита, поиск работы']]}
+ ];
+ var grid=document.getElementById('courseGrid'),tabs=document.getElementById('progTabs'),panes=document.getElementById('progPanes'),sel=document.getElementById('lCourse');
+ COURSES.forEach(function(c,i){
+  grid.insertAdjacentHTML('beforeend','<div class="col-md-6 col-lg-4"><div class="course p-4 d-flex flex-column"><span class="tag align-self-start">'+c.tag+'</span><h3 class="h4 mt-3">'+c.name+'</h3><p class="text-secondary flex-grow-1">'+c.desc+'</p><p class="small mb-3">Ближайший старт: <strong>'+c.start+'</strong></p><div class="cost mb-3">от '+c.price+' &#8381;<small class="fs-6 fw-normal text-secondary"> / мес</small></div><div class="d-flex gap-2"><button class="btn btn-coral flex-fill" type="button" data-enroll="'+i+'">Записаться</button><button class="btn btn-outline-secondary" type="button" data-prog="'+c.id+'">Программа</button></div></div></div>');
+  tabs.insertAdjacentHTML('beforeend','<li class="nav-item" role="presentation"><button class="nav-link'+(i?'':' active')+'" id="tab-'+c.id+'" data-bs-toggle="tab" data-bs-target="#pane-'+c.id+'" type="button" role="tab" aria-controls="pane-'+c.id+'" aria-selected="'+(!i)+'">'+c.name+'</button></li>');
+  panes.insertAdjacentHTML('beforeend','<div class="tab-pane fade'+(i?'':' show active')+'" id="pane-'+c.id+'" role="tabpanel" aria-labelledby="tab-'+c.id+'" tabindex="0"><div class="col-lg-9">'+c.mods.map(function(m){return '<div class="module"><b>'+m[0]+'</b><span>'+m[1]+'</span></div>'}).join('')+'</div></div>');
+  sel.insertAdjacentHTML('beforeend','<option>'+c.name+'</option>');
+ });
+ var en=new bootstrap.Modal(document.getElementById('enrollModal')),curC=null;
+ grid.addEventListener('click',function(e){
+  var b=e.target.closest('[data-enroll]'),p=e.target.closest('[data-prog]');
+  if(b){curC=COURSES[+b.dataset.enroll];document.getElementById('enTitle').textContent='Запись: '+curC.name;
+   document.getElementById('enInfo').textContent='Старт '+curC.start+'. Полная стоимость '+curC.total+' рублей, в рассрочку от '+curC.price+' рублей в месяц. Возврат в течение 14 дней.';
+   document.getElementById('enrollForm').classList.remove('was-validated');en.show();}
+  if(p){bootstrap.Tab.getOrCreateInstance(document.getElementById('tab-'+p.dataset.prog)).show();document.getElementById('program').scrollIntoView({behavior:'smooth'})}
+ });
+ function toast(msg){
+  var z=document.getElementById('toastZone'),d=document.createElement('div');
+  d.className='alert alert-success alert-dismissible shadow fade show';d.setAttribute('role','alert');
+  d.innerHTML='<span></span><button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>';
+  d.firstChild.textContent=msg;z.appendChild(d);setTimeout(function(){bootstrap.Alert.getOrCreateInstance(d).close()},7000);
+ }
+ function wire(id,fn){
+  var f=document.getElementById(id);
+  f.addEventListener('submit',function(e){
+   e.preventDefault();
+   if(!f.checkValidity()){f.classList.add('was-validated');return}
+   fn(f);f.reset();f.classList.remove('was-validated');
+  });
+ }
+ wire('enrollForm',function(){toast('Вы записаны на курс «'+curC.name+'». Договор и ссылку на первое занятие отправили на почту.');en.hide()});
+ wire('trialForm',function(){toast('Доступ к пробному уроку открыт. Проверьте почту.');bootstrap.Modal.getInstance(document.getElementById('trialModal')).hide()});
+ wire('leadForm',function(){toast('Заявка принята. Менеджер позвонит вам в рабочее время в течение часа.')});
+ var lines=['<span class="c"># путь до первой работы</span>','<span class="k">def</span> learn(month):','    projects = month // 3','    <span class="k">return</span> projects','','<span class="k">for</span> month <span class="k">in</span> range(1, 9):','    <span class="k">if</span> learn(month) &gt;= 3:','        print(<span class="s">"Резюме отправлено"</span>)'];
+ var el=document.getElementById('typed'),plain=lines.join('\n'),reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function render(n){
+  var count=0,out='',tag=false,buf='',ent=false;
+  for(var i=0;i<plain.length&&count<n;i++){
+   var ch=plain[i];out+=ch;
+   if(ch==='<')tag=true;else if(ch==='>'&&tag)tag=false;
+   else if(!tag){if(ch==='&')ent=true;if(ent){if(ch===';')ent=false,count++}else count++}
+  }
+  var open=(out.match(/<span/g)||[]).length-(out.match(/<\/span>/g)||[]).length;
+  while(open-->0)out+='</span>';
+  el.innerHTML=out+'<span class="cursor"></span>';
+ }
+ if(reduce){render(9999)}else{var k=0,total=plain.replace(/<[^>]+>/g,'').length;(function step(){render(k++);if(k<=total)setTimeout(step,45)})()}
+ var done=false,stats=document.getElementById('stats');
+ function count(){
+  if(done)return;done=true;
+  stats.querySelectorAll('.stat').forEach(function(s){
+   var to=parseFloat(s.dataset.n),d=+s.dataset.d||0,suf=s.dataset.s,t0=null;
+   function f(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/1200,1),v=to*p;
+    s.textContent=(d?v.toFixed(d).replace('.',','):Math.round(v).toLocaleString('ru-RU'))+suf;if(p<1)requestAnimationFrame(f)}
+   if(reduce){s.textContent=(d?String(to).replace('.',','):to.toLocaleString('ru-RU'))+suf}else requestAnimationFrame(f);
+  });
+ }
+ if('IntersectionObserver' in window){new IntersectionObserver(function(en,o){if(en[0].isIntersecting){count();o.disconnect()}},{threshold:.4}).observe(stats)}else count();
+ var nav=document.getElementById('nav'),col=bootstrap.Collapse.getOrCreateInstance(nav,{toggle:false});
+ nav.addEventListener('click',function(e){if(e.target.closest('a')&&nav.classList.contains('show'))col.hide()});
+})();
+</script>
+</body>
+</html>
